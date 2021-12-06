@@ -8,6 +8,8 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
 - [Digital Logic in TL-Verilog Using Makerchip](#digital-logic-in-tl-verilog-using-makerchip)
     -[Combinational Logic](##combinational-logic)
     -[Sequential Logic](##sequential-logic)
+    -[Pipelined Logic](##pipelined-logic)
+    -[Validity](##validity)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -105,7 +107,7 @@ Output:
 
 ## Combinational Logic
 
-* Here is a code for a combinational calculator:
+* Here is the code for a combinational calculator:
 
 ![comb1](https://user-images.githubusercontent.com/92947276/144866068-49919aae-ff5d-447d-8839-c6c35d95718d.PNG)
 
@@ -117,10 +119,38 @@ Output:
 * An example of a sequential circuit is the Fibonacci series circuit, where the next element is the sum of the previous two elements. This can be implemented in TL-Verilog as 
   `$num[31:0] = >>1$num[31:0] + >>2$num[31:0]`.
 * Here `>>1` and `>>2` provides the output value from previous cycles.
-* Here is a code for sequential calculator:
+* Here is the code for sequential calculator:
 
 ![comb](https://user-images.githubusercontent.com/92947276/144864452-fd4a86b9-a8f2-4391-9479-9ad4fa1cc8c5.PNG)
 
 * For sequential logic, we need to store data from previous cycles. This is being implemented by using `$val1[31:0] = >>1$out[31:0]`.
+
+## Pipelined Logic
+
+* Pipelining is done to operate the circuit at a higher frequency. The pipeline is divided into stages, and each stage can execute its operation concurrently with the other 
+  stages.
+* In TL-Verilog we declare a pipeline as `|<pipline name>` and its stages as `<stage>`.
+* We will implement the above calculator as 2 stage calculator:
+
+![pipeline](https://user-images.githubusercontent.com/92947276/144869686-34abdd79-95fb-4805-abbe-c5408261d55c.PNG)
+
+* Waveform:
+
+![waveform pipe](https://user-images.githubusercontent.com/92947276/144869904-85d3d8fe-2bc8-48b2-83f4-0379e7e41e2f.PNG)
+
+## Validity
+
+* Validity is the notion of when values of signals are meaningful.
+* It makes waveform easier to debug and provides clock gating.
+* Clock gating is a technique used in many sequential circuits to reduce power dissipation. It removes the clock signal when the circuit is not in use. In our case, it removes 
+  the clock signal when the cycle is not valid.
+* After implementing the 2 stage calculator we will add a valid signal to it:
+
+s
+
+
+
+
+
 
 
