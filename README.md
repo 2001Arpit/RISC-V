@@ -18,6 +18,8 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
   - [ALU](#alu)
   - [Branch Instructions](#branch-instructions)
 - [Pipelining the RISC V CPU](#pipelining-the-risc-v-cpu)
+  - [Hazards](#hazards) 
+  - [3 Cycle Valid Signal](#3-cycle-valid-signal)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -248,11 +250,17 @@ Output:
 
 # Pipelining the RISC V CPU
 
+## Hazards
 
+![hazard](https://user-images.githubusercontent.com/92947276/144899161-8b3528d6-91f3-4499-a426-41f84b7972b1.PNG)
 
+* Here we can see two types of hazards.
+* First is related to the branch instruction, this is known as a control flow hazard. Here PC is expecting a value from branch target two cycles before that value is actually   
+  calculated.
+* Second is related to the register file write, this is known as a read after write hazard. We dont need to read a value that is written until stage 4 in the first instruction
+  but we might need to read it for the second instruction in stage 2, which is a one cycle early.
 
-
-
+## 3 Cycle Valid Signal
 
 
 
