@@ -5,6 +5,7 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
 - [Introduction](#introduction)
 - [GNU compiler toolchain](#gnu-compiler-toolchain)
 - [Application Binary Interface](#application-binary-interface)
+- [Digital Logic in TL-Verilog Using Makerchip](#digital-logic--in-tl-verilog-using-makerchip)
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
 
@@ -72,7 +73,36 @@ Output:
 ![load code](https://user-images.githubusercontent.com/92947276/144855226-7869f7ac-050c-42bd-88e2-c76f2728f3ff.PNG)
 
 * Compile them using the gcc compiler comand mentioned above.
-* The assembly code can be viewed using command mentioned [here](*to-view-assembly-code-use-the-below-command)
+* The assembly code can be viewed using command mentioned above.
+* `main` function will look as follows:
+
+![main](https://user-images.githubusercontent.com/92947276/144857556-64d9b4c5-c059-4339-807a-9c6fe2546033.PNG)
+
+* `load` function will look as follows:
+
+![load](https://user-images.githubusercontent.com/92947276/144857691-ab31ecf4-76ef-4b48-aaa8-d814beb3c964.PNG)
+
+* Output can viewed using spike:
+
+![simulate 1 y 9 code](https://user-images.githubusercontent.com/92947276/144857923-ae4bc980-54d7-4525-8f96-1f43a1a8baa8.PNG)
+
+* We can also view the hex file containing the bitstream to be fed into the chip layout.
+
+![hexfile bitstream](https://user-images.githubusercontent.com/92947276/144858357-386c6fe6-80c6-48cd-ab1b-df2bc39e21cf.PNG)
+
+* This hex file is then added to the test bench for our Verilog code.
+
+![hexfile testbench](https://user-images.githubusercontent.com/92947276/144858694-45867cc7-b4fe-4c9a-9063-42cff2c2bf58.PNG)
+
+
+# Digital Logic in TL-Verilog Using Makerchip  
+
+
+
+
+
+
+
 
 
 
