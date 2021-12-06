@@ -6,7 +6,7 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
 - [GNU compiler toolchain](#gnu-compiler-toolchain)
 - [Application Binary Interface](#application-binary-interface)
 - [Digital Logic in TL-Verilog Using Makerchip](#digital-logic-in-tl-verilog-using-makerchip)
-    -[Combinational Logic](##combinational-logic)
+- -[Combinational Logic](##combinational-logic)
     -[Sequential Logic](##sequential-logic)
     -[Pipelined Logic](##pipelined-logic)
     -[Validity](##validity)
