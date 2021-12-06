@@ -10,6 +10,7 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
     -[Sequential Logic](##sequential-logic)
     -[Pipelined Logic](##pipelined-logic)
     -[Validity](##validity)
+    -[Single Value Memory](##single-value-memory)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -146,11 +147,15 @@ Output:
   the clock signal when the cycle is not valid.
 * After implementing the 2 stage calculator we will add a valid signal to it:
 
-s
+![valid](https://user-images.githubusercontent.com/92947276/144874338-e49519a0-edb1-456b-8ad0-ed9e4f4904a3.PNG)
 
+## Single Value Memory
 
+* The calculator now supports remember and recall function:
 
+![memory](https://user-images.githubusercontent.com/92947276/144876370-38a7533d-337d-405c-a877-8bbef304ab50.PNG)
 
+# 
 
 
 
