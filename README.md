@@ -15,6 +15,8 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
   - [Fetch](#fetch)
   - [Decode](#decode)
   - [Register File Read and Write](#register-file-read-and-write)
+  - [ALU](#alu)
+  - [Branch Instructions](#branch-instructions)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -169,7 +171,7 @@ Output:
   * Fetch
   * Decode
   * Read and write
-  * Execute 
+  * ALU 
 
 ## Fetch
 
@@ -223,7 +225,16 @@ Output:
 
 ![reg file code](https://user-images.githubusercontent.com/92947276/144892707-082331fa-25ab-4649-99c4-f4ae67d8354e.PNG)
 
+## ALU
 
+* After getting the values from register file read, we store `$rf_rd_data1[31:0]` and `$rf_rd_data2[31:0]` in `$src1_value[31:0]` and `$src1_value[31:0]` respectively.
+* For now we will perform the arithematic operations 'add' and 'addi' on them. We will add more operations later.
+* add  : will perform addition operation on the two operands.
+* addi : will add the first operand value with immediate value.
+* Register file write will be performed after ALU operations. 
+* The snapshot of the code is included in above image.
+
+## Branch Instructions
 
 
 
