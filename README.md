@@ -262,9 +262,14 @@ Output:
 
 ## 3 Cycle Valid Signal
 
+* To deal with these hazards we will will operate this machine every 3 cycles.
 
+![sol](https://user-images.githubusercontent.com/92947276/144901360-c4e553e4-5516-4db9-8b01-a951bab7e9f2.PNG)
 
-
+* We will use the following code to implement this:
+```
+$valid = $start ? 1'b1: >>3$valid ? 1'b1 : 1'b0;
+```
 
 
 
