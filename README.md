@@ -6,6 +6,9 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
 - [GNU compiler toolchain](#gnu-compiler-toolchain)
 - [Application Binary Interface](#application-binary-interface)
 - [Digital Logic in TL-Verilog Using Makerchip](#digital-logic-in-tl-verilog-using-makerchip)
+    -[Combinational Logic](##combinational-logic)
+    -[Sequential Logic](##sequential-logic)
+    
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
 
@@ -97,14 +100,27 @@ Output:
 
 # Digital Logic in TL-Verilog Using Makerchip  
 
+* Makerchip is a  free online IDE for developing in Verilog or TL-Verilog. It can be used directly in your browser. You can code, simulate and view block diagrams and waveforms.
+* It also features multiple examples and templates.
 
+## Combinational Logic
 
+* Here is a code for a combinational calculator:
 
+![comb1](https://user-images.githubusercontent.com/92947276/144866068-49919aae-ff5d-447d-8839-c6c35d95718d.PNG)
 
+* Unlike Verilog, there is no need to declare variables. Instead, TL-Verilog assigns random values to such variables, producing a warning.
+* In this code we are assingning `$rand1[3:0]` and `$rand2[3:0]` to `$val1[31:0]` and `$val2[31:0]` respectively so that smaller values are generated making it easier to debug.
 
+## Sequential Logic
 
+* An example of a sequential circuit is the Fibonacci series circuit, where the next element is the sum of the previous two elements. This can be implemented in TL-Verilog as 
+  `$num[31:0] = >>1$num[31:0] + >>2$num[31:0]`.
+* Here `>>1` and `>>2` provides the output value from previous cycles.
+* Here is a code for sequential calculator:
 
+![comb](https://user-images.githubusercontent.com/92947276/144864452-fd4a86b9-a8f2-4391-9479-9ad4fa1cc8c5.PNG)
 
-
+* For sequential logic, we need to store data from previous cycles. This is being implemented by using `$val1[31:0] = >>1$out[31:0]`.
 
 
