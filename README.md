@@ -62,10 +62,19 @@ Output:
 * In RISC V architecture, the width of the register is defined as XLEN. For RV64 and RV32, the widths are 64 bits and 32 bits, respectively.
 * RISC V belongs to the little endian memory addressing system, which means that the least significant byte of a word is stored in the smallest memory address.
 
+![abi](https://user-images.githubusercontent.com/92947276/144853808-3407d29a-f9de-41e4-beeb-2459acdc7d5f.png)
+
+* The following c program computes the sum of numbers 1 to 9. We also have its equivalent assembly language code.
+* To get the sum replace value of int count with 9.
+
+![1 to 9 code](https://user-images.githubusercontent.com/92947276/144854779-70b773b7-6ed4-4397-8765-0624619e06d0.PNG)
+
+![load code](https://user-images.githubusercontent.com/92947276/144855226-7869f7ac-050c-42bd-88e2-c76f2728f3ff.PNG)
+
+* Compile them using the gcc compiler comand mentioned above.
+* The assembly code can be viewed using command mentioned [here](*to-view-assembly-code-use-the-below-command,)
 
 
 
 
-    
-    
-    
+
