@@ -20,6 +20,7 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
 - [Pipelining the RISC V CPU](#pipelining-the-risc-v-cpu)
   - [Hazards](#hazards) 
   - [3 Cycle Valid Signal](#3-cycle-valid-signal)
+  - [Register File Bypass](#register-file-bypass)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -270,9 +271,13 @@ Output:
 ```
 $valid = $start ? 1'b1: >>3$valid ? 1'b1 : 1'b0;
 ```
+* This will create the following waveform:
+ 
+![wave](https://user-images.githubusercontent.com/92947276/144901925-284d76c1-a0bd-4062-a274-90ce5bc15bf5.PNG)
 
+* We will modify this logic in the final code.
 
-
+## Register File Bypass
 
 
 
