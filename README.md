@@ -17,6 +17,7 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
   - [Register File Read and Write](#register-file-read-and-write)
   - [ALU](#alu)
   - [Branch Instructions](#branch-instructions)
+- [Pipelining the RISC V CPU](#pipelining-the-risc-v-cpu)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -235,6 +236,26 @@ Output:
 * The snapshot of the code is included in above image.
 
 ## Branch Instructions
+
+* In RISC V branches are defined as conditional branches, i.e, they will only execute when certain conditions are met whereas jumps are unconditional.
+* There are 6 types of branch instructions:
+
+![branch](https://user-images.githubusercontent.com/92947276/144896344-9660a623-ce6d-4528-b8ee-69a315344250.PNG)
+
+* Here is what our code will look like after implementing branches.
+
+![branch code](https://user-images.githubusercontent.com/92947276/144897148-bbfdc959-de56-49a4-a8a3-cc328be18e10.PNG)
+
+# Pipelining the RISC V CPU
+
+
+
+
+
+
+
+
+
 
 
 
