@@ -3,7 +3,8 @@
 Creating a RISC-V pipelined core, which has support of base interger RV32I instruction format using TL-Verilog on makerchip platform.
 # Table of Contents
 - [Introduction](#introduction)
-- [GNU compiler tool chain](#gnu-compiler-toolchain)
+- [GNU compiler toolchain](#gnu-compiler-toolchain)
+- [Application Binary Interface](#application-binary-interface)
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
 
@@ -46,17 +47,20 @@ This project aims to design a RISC V microprocessor core and understand its vari
     
     `spike -d pk <object Filename>` with degub command as `until pc 0 <pc of your choice>`
     
-We will see the following commands in action with a program to compute the sum of first 'n' numbers.
+We will see the following commands in action with a program to compute the sum of numbers 1 to 9.
 
 ![sum_n code2](https://user-images.githubusercontent.com/92947276/144846309-21de62b2-0a00-459a-a3e1-227aa5a7439f.PNG)
 
 Output:
 
-![sum_n op](https://user-images.githubusercontent.com/92947276/144847071-0d7e275c-2201-4e26-a80c-5870988e3c4a.PNG)
+![sum_n op](https://user-images.githubusercontent.com/92947276/144847376-d6e4fdee-c395-4e82-b39f-c81efdda95c6.PNG)
 
+# Application Binary Interface
 
-
-
+* The application program can directly access the registers of the RISC V architecture using something known as system calls. The ABI (also known as system call interface
+  enables the application to access the hardware resources via registers.
+* In RISC V architecture, the width of the register is defined as XLEN. For RV64 and RV32, the widths are 64 bits and 32 bits, respectively.
+* RISC V belongs to the little endian memory addressing system, which means that the least significant byte of a word is stored in the smallest memory address.
 
 
 
