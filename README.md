@@ -201,11 +201,27 @@ Output:
 
 ## Register File Read and Write
 
+* Register file in this cpu is capable of performing 2 reads and 1 write simultanously.
+* Uncomment `//m4+rf(@1, @1)`, this macro will provide us with default values for the inputs.
+* The register file has the following inputs and outputs:
 
+![reg file](https://user-images.githubusercontent.com/92947276/144890850-8e6e3661-0c2b-4b0a-bd68-cfea9645863c.PNG)
 
+* Inputs:
+  * `$rf_rd_en1`        : enable signal for the first read operation.
+  * `$rf_rd_en2`        : enable signal for the second read operation.
+  * `$rf_rd_index1[4:0]`: first address from where data has to be read.
+  * `$rf_rd_index2[4:0]`: second address from where data has to be read. 
+  * `$rf_wr_en`         : enable signal for write operation.
+  * `$rf_wr_index[4:0]` : address where data has to be written.
+  * `$rf_wr_data[31:0]` : data to be written in the write address.
+* Outputs:
+  * `$rf_rd_data1[31:0]`: data from read index 1.
+  * `$rf_rd_data2[31:0]`: data from read index 2.
 
+* This is what our code will look like after implementing register file read and write:
 
-
+![reg file code](https://user-images.githubusercontent.com/92947276/144892707-082331fa-25ab-4649-99c4-f4ae67d8354e.PNG)
 
 
 
