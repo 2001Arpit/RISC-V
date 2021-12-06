@@ -72,7 +72,7 @@ Output:
 ![load code](https://user-images.githubusercontent.com/92947276/144855226-7869f7ac-050c-42bd-88e2-c76f2728f3ff.PNG)
 
 * Compile them using the gcc compiler comand mentioned above.
-* The assembly code can be viewed using command mentioned [here](*to-view-assembly-code-use-the-below-command,)
+* The assembly code can be viewed using command mentioned [here](*to-view-assembly-code-use-the-below-command)
 
 
 
