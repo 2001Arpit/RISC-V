@@ -21,6 +21,8 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
   - [Hazards](#hazards) 
   - [3 Cycle Valid Signal](#3-cycle-valid-signal)
   - [Register File Bypass](#register-file-bypass)
+  - [Load and Store Instructions](#load-and-store-instructions)
+  - [Finalised RISC V CPU](#finalised-risc-v-cpu)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -232,7 +234,7 @@ Output:
 ## ALU
 
 * After getting the values from register file read, we store `$rf_rd_data1[31:0]` and `$rf_rd_data2[31:0]` in `$src1_value[31:0]` and `$src1_value[31:0]` respectively.
-* For now we will perform the arithematic operations 'add' and 'addi' on them. We will add more operations later.
+* For now we will perform the arithematic operations 'add' and 'addi' on them. We will add more operations in the final code.
 * add  : will perform addition operation on the two operands.
 * addi : will add the first operand value with immediate value.
 * Register file write will be performed after ALU operations. 
@@ -269,6 +271,7 @@ Output:
 
 * We will use the following code to implement this:
 ```
+$start = ((>>1$reset)&&(!$reset))? 1'b1: 1'b0;
 $valid = $start ? 1'b1: >>3$valid ? 1'b1 : 1'b0;
 ```
 * This will create the following waveform:
@@ -278,6 +281,63 @@ $valid = $start ? 1'b1: >>3$valid ? 1'b1 : 1'b0;
 * We will modify this logic in the final code.
 
 ## Register File Bypass
+
+* To avaoid the read after write hazard use the following code:
+```
+$src1_value[31:0] = ((>>1$rd == $rs1) && (>>1$rf_wr_en))? >>1$result : $rf_rd_data1[31:0];
+$src2_value[31:0] = ((>>1$rd == $rs2) && (>>1$rf_wr_en))? >>1$result : $rf_rd_data2[31:0];
+```
+
+## Load and Store Instructions
+
+* Inputs:
+  * `$dmem_wr_en`        :Enable signal for write operation
+  * `$dmem_rd_en`        :Enable signal for read operation
+  * `$dmem_addr[3:0]`    :Address where we have to read/write
+  * `$dmem_wr_data[31:0]`:Data to be written in address (store)
+* Output:
+  * `$dmem_rd_data[31:0]`Data to be read from address (load)
+
+* Here is what the code will look like after we have implemented load and store logic.
+
+![load](https://user-images.githubusercontent.com/92947276/144906303-e8c92547-4afd-4233-b00d-2768c4faf8a5.PNG)
+
+## Finalised RISC V CPU
+
+* After adding the remaining ALU operations and jumps instructions, this will be our final code for the RISC V CPU.
+
+![FINAL CODE](https://user-images.githubusercontent.com/92947276/144907275-111ac656-bd51-4624-a8bd-07687417ad34.PNG)
+
+![FINAL VIZ](https://user-images.githubusercontent.com/92947276/144907300-f876eadd-b5b2-4618-8ab8-b4eab1b7a391.PNG)
+
+* Test case used:
+```
+*passed = |cpu/xreg[15]>>5$value == (1+2+3+4+5+6+7+8+9);
+*failed = 1'b0;
+```
+* In VIZ we can see 45 in dmem as well as r15, this proves that our load and store instructions are working.
+
+# Acknowledgements
+- [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
+- [Steve Hoover](https://github.com/stevehoover), Founder, Redwood EDA
+- [Shivam Potdar](https://github.com/shivampotdar), TA | GSoC '20 @ FOSSi Foundation
+- [Vineet Jain](https://github.com/vineetjain07), T.A. for MYTH workshop | GSoC'21
+- [Shivani Shah](https://github.com/shivanishah269), TA - MYTH Workshop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
