@@ -23,6 +23,7 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
   - [Register File Bypass](#register-file-bypass)
   - [Load and Store Instructions](#load-and-store-instructions)
   - [Finalised RISC V CPU](#finalised-risc-v-cpu)
+- [Acknowledgements](#acknowledgements)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
