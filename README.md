@@ -11,6 +11,10 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
   - [Pipelined Logic](#pipelined-logic)
   - [Validity](#validity)
   - [Single Value Memory](#single-value-memory)
+- [Basic RISC-V CPU Micro-Architecture](#basic-risc-v-cpu-micro-architecture)
+  - [Fetch](#fetch)
+  - [Decode](#decode)
+  - [Register File Read and Write](#register-file-read-and-write)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
@@ -155,7 +159,60 @@ Output:
 
 ![memory](https://user-images.githubusercontent.com/92947276/144876370-38a7533d-337d-405c-a877-8bbef304ab50.PNG)
 
-# 
+# Basic RISC-V CPU Micro-Architecture
+
+* We will follow this block diagram to implement RISC V cpu:
+
+![block](https://user-images.githubusercontent.com/92947276/144883029-9c58ee8d-cc7e-4aca-8db2-6cfaaed4ead8.PNG)
+
+* We will implement this design using 4 stages: 
+  * Fetch
+  * Decode
+  * Read and write
+  * Execute 
+
+## Fetch
+
+* The shell already contains the instruction memory.
+* We will now implement fetch logic :
+
+![fetch](https://user-images.githubusercontent.com/92947276/144884649-253ad83e-3582-4f6c-b0f1-0e3709f5adef.PNG)
+
+* PC(Program Counter) contains the address for the next instruction.
+* IMEM contains the set of instructions.
+* The processor will fetch the instruction whose address is stored in PC. 
+
+## Decode
+
+* There are 6 types of instructions :
+  * I-type : Immediate
+  * U-type : Upper Immediate
+  * R-type : Register
+  * S-type : Store
+  * B-type : Branch
+  * J-type : Jump
+
+* We will decode `instr[6:2]` which is the opcode of the instruction, we are ignoring the first 2 bits since they are always 1.
+* We will also consider immediate value, source address, destination address, funct7, funct3.
+* Once we have all of the above fields we can now extract which type of instruction is being fetched.
+* Here is our code after the decode stage:
+
+![decode](https://user-images.githubusercontent.com/92947276/144889396-ef2ffbed-832b-4c65-8936-bbdfe4931b16.PNG)
+
+## Register File Read and Write
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
