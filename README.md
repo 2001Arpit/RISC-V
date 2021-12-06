@@ -7,10 +7,10 @@ Creating a RISC-V pipelined core, which has support of base interger RV32I instr
 - [Application Binary Interface](#application-binary-interface)
 - [Digital Logic in TL-Verilog Using Makerchip](#digital-logic-in-tl-verilog-using-makerchip)
   - [Combinational Logic](##combinational-logic)
-  -[Sequential Logic](##sequential-logic)
-  -[Pipelined Logic](##pipelined-logic)
-  -[Validity](##validity)
-  -[Single Value Memory](##single-value-memory)
+  - [Sequential Logic](##sequential-logic)
+  - [Pipelined Logic](##pipelined-logic)
+  - [Validity](##validity)
+  - [Single Value Memory](##single-value-memory)
     
 # Introduction
 ![flow](https://user-images.githubusercontent.com/92947276/144841759-7f171938-2f64-4411-b059-5686dcbd872d.PNG)
