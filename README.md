@@ -12,3 +12,33 @@ Whenever you run an app on your computer, its function (high level program) is c
 This project aims to design a RISC V microprocessor core and understand its various functions. We will start with a simple c program then look into its assembly and machine language code. Before that, let us see some basic commands we need to know to implement this in a Linux based system.
 
 # GNU Compiler Toolchain
+* To use the risc-v gcc compiler use the below command:
+
+    `riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o <object filename> <C filename>`
+
+    More generic command with different options:
+
+    `riscv64-unknown-elf-gcc <compiler option -O1 ; Ofast> <ABI specifier -lp64; -lp32; -ilp32> <architecture specifier -RV64 ; RV32> -o <object filename> <C      filename>`
+
+    More details on compiler options can be obtained [here](https://www.sifive.com/blog/all-aboard-part-1-compiler-args)
+  
+ * To view assembly code use the below command,
+    
+    `riscv64-unknown-elf-objdump -d <object filename>`
+    
+  * To use SPIKE simualtor to run risc-v obj file use the below command,
+  
+    `spike pk <object filename>`
+    
+    To use SPIKE as debugger
+    
+    `spike -d pk <object Filename>` with degub command as `until pc 0 <pc of your choice>`
+    
+    
+    
+    
+    
+    
+    
+    
+    
